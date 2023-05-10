@@ -124,6 +124,12 @@
         default: "1"
         description: Run each test N number of times, --repeat=N
     - choice:
+        name: WITH_GCOV
+        choices:
+        - "OFF"
+        - "ON"
+        description: Whether to build with Coverage
+    - choice:
         name: KEYRING_VAULT_MTR
         choices:
         - "no"
