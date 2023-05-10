@@ -549,6 +549,10 @@ pipeline {
             choices: 'ON\nOFF',
             description: 'Whether to build with support for keyring_vault Plugin',
             name: 'WITH_KEYRING_VAULT')
+	choice(
+            choices: 'OFF\nON',
+            description: 'Whether to build with Coverage',
+            name: 'WITH_GCOV')
         string(
             defaultValue: '',
             description: 'cmake options',

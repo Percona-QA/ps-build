@@ -96,6 +96,7 @@ docker run --rm --shm-size=24G \
     export DOCKER_OS='${DOCKER_OS//:/-}'
     export ZEN_FS_MTR='${ZEN_FS_MTR}'
     export WITH_ROCKSDB='${WITH_ROCKSDB}'
+    export WITH_GCOV='${WITH_GCOV}'
 
     mv /tmp/ps/*.pem /tmp/results || true
     cp /tmp/ps/results/*.tar.gz /tmp/results
