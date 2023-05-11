@@ -35,7 +35,7 @@ ln -sf ${WORKDIR_ABS}/PS/plugin_output_directory ${WORKDIR_ABS}/plugin_output_di
 ln -sf ${WORKDIR_ABS}/PS/library_output_directory ${WORKDIR_ABS}/library_output_directory
 
 # GCOV Cross-profiling and MTR args
-if [[ ${WITH_GCOV} == 'ON' ]]; then
+if [[ "${WITH_GCOV}" == "ON" ]]; then
     export GCOV_PREFIX="${WORKDIR_ABS}/PS"
     export GCOV_PREFIX_STRIP="2"
     MTR_ARGS+=" --gcov"
@@ -515,7 +515,7 @@ if [[ ${KEYRING_VAULT_MTR} == 'yes' ]]; then
 fi
 
 # GCOV Covergae Report
-if [[ ${WITH_GCOV} == 'ON' ]]; then
+if [[ "${WITH_GCOV}" == "ON" ]]; then
     pushd ${WORKDIR_ABS}/PS
     wget https://raw.githubusercontent.com/Percona-QA/percona-qa/master/Coverage/dgcov.pl
     perl dgcov.pl --v --dump | tee coverage.txt
