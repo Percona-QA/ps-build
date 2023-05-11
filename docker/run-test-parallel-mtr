@@ -78,6 +78,7 @@ docker run --rm --shm-size=24G \
     export MTR_ARGS='${MTR_ARGS}'
     export MTR_REPEAT='${MTR_REPEAT}'
     export MTR_SUITES='${MTR_SUITES}'
+    export WITH_GCOV='${WITH_GCOV}'
     export CI_FS_MTR='${CI_FS_MTR}'
     export KEYRING_VAULT_MTR='${KEYRING_VAULT_MTR}'
     export WORKER_NO='${WORKER_NO}'
@@ -96,7 +97,6 @@ docker run --rm --shm-size=24G \
     export DOCKER_OS='${DOCKER_OS//:/-}'
     export ZEN_FS_MTR='${ZEN_FS_MTR}'
     export WITH_ROCKSDB='${WITH_ROCKSDB}'
-    export WITH_GCOV='${WITH_GCOV}'
 
     mv /tmp/ps/*.pem /tmp/results || true
     cp /tmp/ps/results/*.tar.gz /tmp/results
