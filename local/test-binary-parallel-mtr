@@ -25,6 +25,7 @@ ulimit -a
 echo "*******************************************************"
 
 WORKDIR_ABS=$(cd ${1:-./build}; pwd -P)
+
 rm -fr ${WORKDIR_ABS}/PS
 mkdir -p ${WORKDIR_ABS}/PS/sql
 tar -C ${WORKDIR_ABS}/PS --strip-components=1 -zxpf $(ls $WORKDIR_ABS/*.tar.gz | head -1)
@@ -36,7 +37,7 @@ ln -sf ${WORKDIR_ABS}/PS/library_output_directory ${WORKDIR_ABS}/library_output_
 
 # GCOV Cross-profiling and MTR args
 if [[ "${WITH_GCOV}" == "ON" ]]; then
-    export GCOV_PREFIX="${WORKDIR_ABS}/PS"
+    export GCOV_PREFIX="${WORKDIR_ABS}/PS/"
     export GCOV_PREFIX_STRIP="2"
     MTR_ARGS+=" --gcov"
 fi
@@ -514,6 +515,8 @@ if [[ ${KEYRING_VAULT_MTR} == 'yes' ]]; then
     echo KH,SUITE_TOTAL,KEYRING_VAULT_tests,time,$runtime
 fi
 
+cat /tmp/results/PS/mysql-test-gcov.msg
+cat /tmp/results/PS/mysql-test-gcov.err
 # GCOV Covergae Report
 if [[ "${WITH_GCOV}" == "ON" ]]; then
     pushd ${WORKDIR_ABS}/PS
